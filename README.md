@@ -4,6 +4,7 @@ Simple web app
 After you checked out source code you should run the following commands in order to summon dependencies:
 
 npm install
+
 bower install
 
 
