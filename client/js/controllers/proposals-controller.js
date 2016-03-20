@@ -1,6 +1,18 @@
-app.controller('proposalsController', ['$scope', '$resource', function ($scope, $resource) {
+app.controller('proposalsController', ['$scope', '$uibModal', '$resource', function ($scope, $uibModal, $resource) {
     $scope.showNewProposalButton = true;
     $scope.showProposalForm = false;
+
+    $scope.openProposal = function (proposal) {
+        var uibModalInstance = $uibModal.open({
+            templateUrl: 'views/proposal.html',
+            controller: 'proposalController',
+            resolve: {
+                proposal: function () {
+                    return proposal;
+                }
+            }
+        });
+    };
 
     var Proposal = $resource('/api/proposals');
 
